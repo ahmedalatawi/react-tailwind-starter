@@ -1,4 +1,6 @@
-function getPosition() {
+import { getAddress } from "../services/geocoding_api";
+
+function getPosition(): Promise<GeolocationPosition> {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });

@@ -1,22 +1,37 @@
-import { useState } from 'react';
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Menu from "./pages/menu/Menu";
+import Cart from "./pages/cart/Cart";
+import CreateOrder from "./pages/order/CreateOrder";
+import Order from "./pages/order/Order";
+
+// import "./App.css";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/menu",
+    element: <Menu />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+  {
+    path: "/order/new",
+    element: <CreateOrder />,
+  },
+  {
+    path: "order/:orderId",
+    element: <Order />,
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="text-3xl font-bold underline">Hello world!</p>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
