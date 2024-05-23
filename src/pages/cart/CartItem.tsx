@@ -1,11 +1,20 @@
-import { formatCurrency } from '../../utils/helpers';
+import { formatCurrency } from "../../utils/helpers";
+
+type Item = {
+  totalPrice: number;
+  quantity: number;
+  name: string;
+  pizzaId: string;
+};
 
 interface Props {
-  item: any;
+  item: Item;
 }
 
 function CartItem({ item }: Props) {
   const { pizzaId, name, quantity, totalPrice } = item;
+
+  console.log("pizzaId: ", pizzaId);
 
   return (
     <li>
